@@ -8,4 +8,4 @@ edge_list_path = "../dataset/musae_facebook_edges.csv"
 G = nx.read_edgelist(edge_list_path, delimiter=',')
 
 # Remove the self-loops from the graph
-G.remove_edges_from(G.selfloop_edges())
+G.remove_edges_from(nx.selfloop_edges(G))
