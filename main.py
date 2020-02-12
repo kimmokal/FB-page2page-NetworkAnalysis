@@ -3,5 +3,9 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 
+# Read the graph from edgelist
 edge_list_path = "../dataset/musae_facebook_edges.csv"
-data_edges = pd.read_csv(edge_list_path)
+G = nx.read_edgelist(edge_list_path, delimiter=',')
+
+# Remove the self-loops from the graph
+G.remove_edges_from(G.selfloop_edges())
